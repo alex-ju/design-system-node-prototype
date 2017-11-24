@@ -1,0 +1,37 @@
+{% macro example(component, raw=false) %}
+
+{% from "breadcrumb/macro.njk" import govukBreadcrumb %}
+
+{% if(raw) %}
+{% raw %}
+{{ govukBreadcrumb({
+  "items": [
+    {
+      "text": "Section 1",
+      "href": "/section"
+    },
+    {
+      "text": "Sub-section",
+      "href": "/section/sub-section"
+    }
+  ]
+}) }}
+{% endraw %}
+{% else %}
+<div class="example">
+  {{ govukBreadcrumb({
+    "items": [
+      {
+        "text": "Section 1",
+        "href": "/section"
+      },
+      {
+        "text": "Sub-section",
+        "href": "/section/sub-section"
+      }
+    ]
+  }) -}}
+</div>
+{% endif %}
+
+{% endmacro %}
